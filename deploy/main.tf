@@ -4,6 +4,11 @@ provider "aws" {
   region = var.region
 }
 
+terraform {
+  required_version = ">= 1.0.0"
+  backend "remote" {}
+}
+
 
 # Create Labels
 module "quickstart_sqs_label" {

@@ -1,7 +1,7 @@
 # Terraform Amazon SQS Module
 **Authors** : Rahul Gaikwad (gikwadr@amazon.com), Jomcy Pappachen (jomcy@amazon.com)
 
-This Terraform module will create an Amazon Queue Service (SQS) queue with other resources. 
+This Terraform module creates an Amazon Queue Service (SQS) queue with other resources. 
 
 ## Repository directory structure 
 * **deploy/** contains .tf configuration files and `dev.auto.tfvars` to define default variables.
@@ -43,31 +43,28 @@ Export the TERRAFORM_CONFIG variable
 
 # Deploy this module (Linux or Mac)
 
-. Clone the aws-ia/terraform-aws-sqs repository.
+1. Clone the aws-ia/terraform-aws-sqs repository.
 
 `git clone https://github.com/aws-ia/terraform-aws-sqs`
 
-. Change directory to module root.
+2. Change directory to module root.
 
 `cd terraform-aws-sqs`.
 
-. Start by setting up you cloud workspace
+3. Start by setting up you cloud workspace
 
 `cd setup_workspace`. 
 
-. Run to following commands in order:
+4. Run to following commands in order:
 
 `terraform init`
 
 `terraform apply`  or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`.
 
-. Change directory to deploy dir (previous command auto generates backend.hcl)
+5. Change directory to deploy dir (previous command auto generates backend.hcl)
 
 `cd ../deploy`
 
-. Open `dev.auto.tfvars` and edit the default values to match your enviornment. 
-      - See [Protocols and endpoints](#table) later in this document for supported protocols and endpoint examples.
+6. Open `dev.auto.tfvars` and edit the default values to match your environment.
 
-. Run `terraform apply` or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`. Terraform apply is run remotely in Terraform Cloud.
-
-
+7. Run `terraform apply` or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`. Terraform apply is run remotely in Terraform Cloud.

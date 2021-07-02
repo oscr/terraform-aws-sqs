@@ -43,28 +43,28 @@ Export the TERRAFORM_CONFIG variable
 
 # Deploy this module (Linux or Mac)
 
-1. Clone the aws-ia/terraform-aws-sqs repository.
+1. Clone the `aws-ia/terraform-aws-sqs` repository.
 
-`git clone https://github.com/aws-ia/terraform-aws-sqs`
+   `git clone https://github.com/aws-ia/terraform-aws-sqs`
 
-2. Change directory to module root.
+2. Change to the module root directory.
 
-`cd terraform-aws-sqs`.
+   `cd terraform-aws-sqs`.
 
-3. Start by setting up you cloud workspace
+3. Set up your Terraform cloud workspace.
 
-`cd setup_workspace`. 
+   `cd setup_workspace`. 
 
-4. Run to following commands in order:
+4. Run the following commands in order:
 
-`terraform init`
+   `terraform init`
 
-`terraform apply`  or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`.
+   `terraform apply`  or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`.
+   
+   **Note:** Terraform apply is run remotely in Terraform Cloud.
 
-5. Change directory to deploy dir (previous command auto generates backend.hcl)
+5. Change to the deploy directory.
 
-`cd ../deploy`
+   `cd ../deploy`
 
 6. Open `dev.auto.tfvars` and edit the default values to match your environment.
-
-7. Run `terraform apply` or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`. Terraform apply is run remotely in Terraform Cloud.

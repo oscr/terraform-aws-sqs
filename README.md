@@ -20,7 +20,7 @@ This Terraform module creates an Amazon Queue Service (SQS) queue with other res
 
 ## Configure your .tfvars file
    
-* Example filepath:<br>     
+* Example file path:<br>     
    `$HOME/.aws/terraform.tfvars`
       
 * Example .tfvars file contents:
@@ -50,7 +50,7 @@ This Terraform module creates an Amazon Queue Service (SQS) queue with other res
    `terraform init`<br>
    `terraform apply`  or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`.
    
-   **Note:** Terraform apply is run remotely in Terraform Cloud.
+   **Note:** Terraform apply runs remotely in Terraform Cloud.
 
 5. Change to the deploy directory.<br>
    `cd ../deploy`

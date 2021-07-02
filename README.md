@@ -4,30 +4,24 @@
 This Terraform module creates an Amazon Queue Service (SQS) queue with other resources. 
 
 ## Repository directory structure 
-* **deploy/** contains .tf configuration files and `dev.auto.tfvars` to define default variables.
+* **deploy** contains .tf configuration files and `dev.auto.tfvars` to define default variables.
 
-# Install Terraform
-To deploy this module, do the following:
-Install Terraform. (See [Install Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) for a tutorial.) 
+## Prerequisites
+1. Install Terraform. See [Install Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) for a tutorial. 
+2. Sign up and log into [Terraform Cloud](https://app.terraform.io/signup/account). There is a free tier available.
 
-# Sign up for Terraform Cloud
-Sign up and log into [Terraform Cloud](https://app.terraform.io/signup/account). (There is a free tier available.)
+## Configure Terraform Cloud API access
 
-## Configure Terraform Cloud API Access
+1. Generate a Terraform Cloud token.<br>
+   `terraform login`
 
-Generate terraform cloud token
+2. Export the `TERRAFORM_CONFIG` variable.<br>
+   `export TERRAFORM_CONFIG="$HOME/.terraform.d/credentials.tfrc.json"`
 
-`terraform login` 
-
-Export the TERRAFORM_CONFIG variable
-
-`export TERRAFORM_CONFIG="$HOME/.terraform.d/credentials.tfrc.json"`
-
-# Configure your tfvars file
+## Configure your .tfvars file
    
-* Example filepath:
-     
-  `$HOME/.aws/terraform.tfvars`
+* Example filepath:<br>     
+   `$HOME/.aws/terraform.tfvars`
       
 * Example .tfvars file contents:
 
@@ -41,30 +35,24 @@ Export the TERRAFORM_CONFIG variable
 
  **WARNING:** Make sure your credentials are secured outside of version control and follow secrets-management best practices.
 
-# Deploy this module (Linux or Mac)
+## Deploy the module (Linux or Mac)
 
-1. Clone the `aws-ia/terraform-aws-sqs` repository.
-
+1. Clone the `aws-ia/terraform-aws-sqs` repository.<br>
    `git clone https://github.com/aws-ia/terraform-aws-sqs`
 
-2. Change to the module root directory.
+2. Change to the module root directory.<br>
+   `cd terraform-aws-sqs`
 
-   `cd terraform-aws-sqs`.
+3. Set up your Terraform cloud workspace.<br>
+   `cd setup_workspace` 
 
-3. Set up your Terraform cloud workspace.
-
-   `cd setup_workspace`. 
-
-4. Run the following commands in order:
-
-   `terraform init`
-
+4. Run the following commands in order:<br>
+   `terraform init`<br>
    `terraform apply`  or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`.
    
    **Note:** Terraform apply is run remotely in Terraform Cloud.
 
-5. Change to the deploy directory.
-
+5. Change to the deploy directory.<br>
    `cd ../deploy`
 
 6. Open `dev.auto.tfvars` and edit the default values to match your environment.

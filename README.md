@@ -35,7 +35,7 @@ This Terraform module creates an Amazon Queue Service (SQS) queue with other res
 
  **WARNING:** Make sure your credentials are secured outside of version control and follow secrets-management best practices.
 
-## Deploy the module (Linux or Mac)
+## Deploy the module (Linux or MacOS)
 
 1. Clone the `aws-ia/terraform-aws-sqs` repository.<br>
    `git clone https://github.com/aws-ia/terraform-aws-sqs`

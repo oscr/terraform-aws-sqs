@@ -41,35 +41,33 @@ Export the TERRAFORM_CONFIG variable
 
  **WARNING:** Make sure your credentials are secured outside of version control and follow secrets-management best practices.
 
-# Deploy this module (instruction for linux or mac)
+# Deploy this module (Linux or Mac)
 
-Clone the aws-ia/terraform-aws-sqs repository.
+. Clone the aws-ia/terraform-aws-sqs repository.
 
 `git clone https://github.com/aws-ia/terraform-aws-sqs`
 
-Change directory to module root.
+. Change directory to module root.
 
 `cd terraform-aws-sqs`.
 
-Start by setting up you cloud workspace
+. Start by setting up you cloud workspace
 
 `cd setup_workspace`. 
 
-Run to following commands in order:
+. Run to following commands in order:
 
 `terraform init`
 
 `terraform apply`  or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`.
 
-Change directory to deploy dir (previous command auto generates backend.hcl)
+. Change directory to deploy dir (previous command auto generates backend.hcl)
 
 `cd ../deploy`
 
- Open `dev.auto.tfvars` and edit the default values to match your enviornment. 
+. Open `dev.auto.tfvars` and edit the default values to match your enviornment. 
       - See [Protocols and endpoints](#table) later in this document for supported protocols and endpoint examples.
 
-`terraform apply` or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`. 
-
-Terraform apply is run remotely in Terraform Cloud.
+. Run `terraform apply` or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`. Terraform apply is run remotely in Terraform Cloud.
 
 

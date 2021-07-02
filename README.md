@@ -24,21 +24,22 @@ Export the TERRAFORM_CONFIG variable
 `export TERRAFORM_CONFIG="$HOME/.terraform.d/credentials.tfrc.json"`
 
 # Configure your tfvars file
+   
+* Example filepath:
+     
+ `$HOME/.aws/terraform.tfvars`
+      
+ * Example .tfvars file contents:
 
-_Example filepath_ = `$HOME/.aws/terraform.tfvars`
+ In the following example, replace asterisks with your AKEY and SKEY.
+ ```
+ AWS_SECRET_ACCESS_KEY = "*****************"
+ AWS_ACCESS_KEY_ID = "*****************"
+ AWS_SESSION_TOKEN = "*****************"
+ ```
+ **Note:** STS-based credentials are optional but highly recommended. 
 
-_Example tfvars file contents_ 
-
-```
-AWS_SECRET_ACCESS_KEY = "*****************"
-AWS_ACCESS_KEY_ID = "*****************"
-AWS_SESSION_TOKEN = "*****************"
-```
-> (replace *** with AKEY and SKEY)
-
-Note: STS-based credentials _are optional_ but *highly recommended*. 
-
-> !!!!CAUTION!!!!: Make sure your credential are secured ourside version control (and follow secrets mangement bestpractices)
+ **WARNING:** Make sure your credentials are secured outside of version control and follow secrets-management best practices.
 
 # Deploy this module (instruction for linux or mac)
 

@@ -27,7 +27,7 @@ Export the TERRAFORM_CONFIG variable
    
 * Example filepath:
      
- `$HOME/.aws/terraform.tfvars`
+  `$HOME/.aws/terraform.tfvars`
       
 * Example .tfvars file contents:
 

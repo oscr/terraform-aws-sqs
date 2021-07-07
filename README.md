@@ -1,74 +1,58 @@
 # Terraform Amazon SQS Module
 **Authors** : Rahul Gaikwad (gikwadr@amazon.com), Jomcy Pappachen (jomcy@amazon.com)
 
-This Terraform module will create an Amazon Queue Service (SQS) queue with other resources. 
+This Terraform module creates an Amazon Queue Service (SQS) queue with other resources. 
 
 ## Repository directory structure 
-* **deploy/** contains .tf configuration files and `dev.auto.tfvars` to define default variables.
+* The deploy directory contains .tf configuration files and `dev.auto.tfvars` to define default variables.
 
-# Install Terraform
-To deploy this module, do the following:
-Install Terraform. (See [Install Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) for a tutorial.) 
+## Prerequisites
+1. Install Terraform. See [Install Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) for a tutorial. 
+2. Sign up and log into [Terraform Cloud](https://app.terraform.io/signup/account). There is a free tier available.
 
-# Sign up for Terraform Cloud
-Sign up and log into [Terraform Cloud](https://app.terraform.io/signup/account). (There is a free tier available.)
+## Configure Terraform Cloud API access
 
-## Configure Terraform Cloud API Access
+1. Generate a Terraform Cloud token.<br>
+   `terraform login`
 
-Generate terraform cloud token
+2. Export the `TERRAFORM_CONFIG` variable.<br>
+   `export TERRAFORM_CONFIG="$HOME/.terraform.d/credentials.tfrc.json"`
 
-`terraform login` 
+## Configure your .tfvars file
+   
+**Example file path**<br>
+   `$HOME/.aws/terraform.tfvars`
+      
+**Example .tfvars file contents**
 
-Export the TERRAFORM_CONFIG variable
+   In the following example, replace asterisks with your AKEY and SKEY.
+   ```
+   AWS_SECRET_ACCESS_KEY = "*****************"
+   AWS_ACCESS_KEY_ID = "*****************"
+   AWS_SESSION_TOKEN = "*****************"
+   ```
+ **Note:** STS-based credentials are optional but highly recommended. 
 
-`export TERRAFORM_CONFIG="$HOME/.terraform.d/credentials.tfrc.json"`
+ **WARNING:** Make sure your credentials are secured outside of version control and follow secrets-management best practices.
 
-# Configure your tfvars file
+## Deploy the module (Linux or MacOS)
 
-_Example filepath_ = `$HOME/.aws/terraform.tfvars`
+1. Clone the `aws-ia/terraform-aws-sqs` repository.<br>
+   `git clone https://github.com/aws-ia/terraform-aws-sqs`
 
-_Example tfvars file contents_ 
+2. Change to the module root directory.<br>
+   `cd terraform-aws-sqs`
 
-```
-AWS_SECRET_ACCESS_KEY = "*****************"
-AWS_ACCESS_KEY_ID = "*****************"
-AWS_SESSION_TOKEN = "*****************"
-```
-> (replace *** with AKEY and SKEY)
+3. Set up your Terraform cloud workspace.<br>
+   `cd setup_workspace` 
 
-Note: STS-based credentials _are optional_ but *highly recommended*. 
+4. Run the following commands in order:<br>
+   `terraform init`<br>
+   `terraform apply`  or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`.
+   
+   **Note:** Terraform apply runs remotely in Terraform Cloud.
 
-> !!!!CAUTION!!!!: Make sure your credential are secured ourside version control (and follow secrets mangement bestpractices)
+5. Change to the deploy directory.<br>
+   `cd ../deploy`
 
-# Deploy this module (instruction for linux or mac)
-
-Clone the aws-ia/terraform-aws-sqs repository.
-
-`git clone https://github.com/aws-ia/terraform-aws-sqs`
-
-Change directory to module root.
-
-`cd terraform-aws-sqs`.
-
-Start by setting up you cloud workspace
-
-`cd setup_workspace`. 
-
-Run to following commands in order:
-
-`terraform init`
-
-`terraform apply`  or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`.
-
-Change directory to deploy dir (previous command auto generates backend.hcl)
-
-`cd ../deploy`
-
- Open `dev.auto.tfvars` and edit the default values to match your enviornment. 
-      - See [Protocols and endpoints](#table) later in this document for supported protocols and endpoint examples.
-
-`terraform apply` or `terraform apply  -var-file="$HOME/.aws/terraform.tfvars"`. 
-
-Terraform apply is run remotely in Terraform Cloud.
-
-
+6. Open `dev.auto.tfvars` and edit the default values to match your environment.

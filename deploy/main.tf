@@ -12,8 +12,8 @@ terraform {
 
 # Create Labels
 module "quickstart_sqs_label" {
-  source    = "aws-quickstart/label/aws"
-  version   = "0.0.2"
+  source    = "aws-ia/label/aws"
+  version   = "0.0.3"
   region    = var.region
   namespace = var.namespace
   env       = var.environment
